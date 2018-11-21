@@ -23,22 +23,31 @@ class Problem1(object):
         # 客一人当たり利益
         self.c_profit = 180
 
+    def work(self, counter_count, timezone):
         # 処理した客数
-        self.customer_finished = 0
+        customer_finished = 0
 
-    def main(self, counter_count, timezone):
         self.w.c = counter_count
         self.w.timezone = timezone
 
         for r in self.w.work():
-            self.customer_finished = self.customer_finished + r[1]
+            customer_finished = customer_finished + r[1]
 
-        all_profit = self.c_profit * self.customer_finished
+        all_profit = self.c_profit * customer_finished
         cost = self.c_cost * int(self.w.minute / 60) * self.w.c
         # print('cost: ', cost)
         # print('all profit: ', all_profit)
         # print('result: ', all_profit - cost)
         return all_profit - cost
+
+    def main(self, counter_count, timezone):
+        res = []
+
+        for i in range(20):
+            res.append(self.work(counter_count, timezone))
+
+        return np.average(np.array(res))
+
 
 if __name__ == '__main__':
     x_label = 'how many counter'
