@@ -21,9 +21,9 @@ class Poisson(object):
 
         for i in range(11):
             wariai.append(data[i] / self.rand_exp_size)
-        
+
         return wariai
-    
+
     def __collectDataAsAccumulation(self, ndarray):
         data = collections.Counter(ndarray)
         wariai = []
@@ -34,7 +34,7 @@ class Poisson(object):
             wariai.append(newNum)
             before = newNum
         return wariai
-    
+
     def getPoisson(self, lam, accumulation=False):
         ndarray = self.__getPoissonRawData(lam)
         if accumulation:
