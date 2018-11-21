@@ -69,5 +69,5 @@ if __name__ == '__main__':
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.grid(True)
-        plt.savefig('figure/' + graph_title + '.png')
+        plt.savefig('figure/problem1/' + graph_title + '.png')
         plt.figure()
