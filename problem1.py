@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from work import Work
 from timezone import TimeZone
@@ -58,5 +60,5 @@ if __name__ == '__main__':
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.grid(True)
-        plt.show()
-        # break
+        plt.savefig('figure/' + graph_title + '.png')
+        plt.figure()
