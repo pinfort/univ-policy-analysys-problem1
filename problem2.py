@@ -43,9 +43,21 @@ class Problem2(object):
 
 if __name__ == '__main__':
     problem2 = Problem2()
+    x_label = 'how many counter'
+    y_label = 'is good'
+
     for tz in [TimeZone.LUNCH, TimeZone.DINNER, TimeZone.OTHER]:
-        res = []
-        for counter_count in range(1, 16):
-            result_tmp = [problem2.work(counter_count, tz) for i in range(21)]
-            res.append(statistics.mode(result_tmp))
-        print(res)
+        graph_title = TimeZone.TIMEZONE_NAMES[tz]
+        res = [statistics.mode([problem2.work(counter_count, tz) for i in range(21)]) for counter_count in range(1, 16)]
+
+        y_arr = np.array(list(map(lambda x: int(x), res)))
+        x_arr = np.array(list(range(1, 16)))
+        plt.plot(x_arr, y_arr)
+        plt.title(graph_title)
+        plt.xlabel(x_label)
+        plt.ylabel(y_label)
+        plt.xticks(list(range(1, 16)))
+        plt.yticks([0, 1])
+        plt.grid(True)
+        plt.savefig('figure/problem2/' + graph_title + '.png')
+        plt.figure()
