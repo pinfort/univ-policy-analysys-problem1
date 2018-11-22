@@ -23,7 +23,6 @@ class Work(object):
         for i in range(int(self.minute / self.minute_base)):
             # 新規顧客がやってくる
             new_customer = TimeZone.getRandomCustomerCount(self.timezone)
-            # print(i * self.minute_base, 'remaining_customer is', self.remaining_customer, 'new_costomer is', new_customer)
 
             # 新規顧客が並ぶ
             self.remaining_customer = self.remaining_customer + new_customer
@@ -35,4 +34,3 @@ class Work(object):
             self.remaining_customer = self.remaining_customer - customer
 
             yield [i * self.minute_base, customer, self.remaining_customer]
-            # print(i * minute_base, customer, 'customer finished.', remaining_customer, 'customers remaining.' + "\n")
