@@ -1,3 +1,4 @@
+import statistics
 import numpy as np
 import matplotlib.pyplot as plt
 from work import Work
@@ -41,8 +42,10 @@ class Problem2(object):
         return True
 
 if __name__ == '__main__':
+    problem2 = Problem2()
     for tz in [TimeZone.LUNCH, TimeZone.DINNER, TimeZone.OTHER]:
         res = []
-        for counter_count in range(1, 50):
-            res.append(Problem2().work(counter_count, tz))
+        for counter_count in range(1, 16):
+            result_tmp = [problem2.work(counter_count, tz) for i in range(21)]
+            res.append(statistics.mode(result_tmp))
         print(res)
