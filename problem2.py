@@ -17,7 +17,7 @@ class Problem2(object):
         self.w.timezone = TimeZone.OTHER
 
         # 計算対象期間(分)
-        self.w.minute = 60 * 24 * 10
+        self.w.minute = 60 * 3 * 10
 
         # 要件待機客数(未満)
         self.c_limit = 5
